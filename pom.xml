@@ -564,7 +564,7 @@
            </snapshots>
          </repository>
 </distributionManagement>
-<<repositories>>
+<repositories>
           <repository>
            <id>artifactnew</id>
            <url>https://pkgs.dev.azure.com/subho3600ghosh0902/_packaging/artifactnew/maven/v1</url>
@@ -575,5 +575,5 @@
              <enabled>true</enabled>
            </snapshots>
          </repository>
-</<repositories>>
+</repositories>
 </project>
