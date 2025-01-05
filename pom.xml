@@ -551,5 +551,27 @@
             <name>Spring Milestone Repository</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+        <repository>
+           <id>artifactnew</id>
+           <url>https://pkgs.dev.azure.com/subho3600ghosh0902/_packaging/artifactnew/maven/v1</url>
+           <releases>
+             <enabled>true</enabled>
+           </releases>
+           <snapshots>
+             <enabled>true</enabled>
+           </snapshots>
+        </repository>
     </repositories>
+    <distributionManagement>
+          <repository>
+           <id>artifactnew</id>
+           <url>https://pkgs.dev.azure.com/subho3600ghosh0902/_packaging/artifactnew/maven/v1</url>
+           <releases>
+             <enabled>true</enabled>
+           </releases>
+           <snapshots>
+             <enabled>true</enabled>
+           </snapshots>
+         </repository>
+</distributionManagement>
 </project>
