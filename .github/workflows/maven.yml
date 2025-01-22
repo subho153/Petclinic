@@ -27,5 +27,8 @@ jobs:
       run: mvn package
     - name: Trivy Scan
       run: trivy fs --format table -o trivy-scaner-report.html .
-    - name: sonar Scan
-      run: mvn clean verify org.sonarsource.scanner.maven:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
