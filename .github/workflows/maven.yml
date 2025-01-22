@@ -21,16 +21,33 @@ jobs:
         cache: maven
     - name: Code Compile
       run: mvn compile
+      
     - name: Code Test
       run: mvn test
+      
     - name: Code Build
       run: mvn package
+      
     - name: Trivy Scan
       run: trivy fs --format table -o trivy-scaner-report.html .
+      
     - name: Install unzip
       run: sudo apt-get update && sudo apt-get install -y unzip
+      
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker Image
+      run: |
+        docker build -t subho/petclicdev:latest .
+    - name: Trivy Image scan
+      run: trivy image --format table -o trivyscanimage.html subho/petclicdev:latest 
