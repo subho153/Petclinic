@@ -48,6 +48,15 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t subho/petclicdev:latest .
+        docker build -t dockerhubdemosubha1234/petclicdev:latest .
     - name: Trivy Image scan
       run: trivy image --format table -o trivyscanimage.html subho/petclicdev:latest 
+    - name: Docker Hub Login
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Push Docker Image
+      run: |
+          docker push dockerhubdemosubha1234/petclicdev:latest
