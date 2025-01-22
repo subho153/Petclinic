@@ -27,5 +27,5 @@ jobs:
       run: mvn package
     - name: Trivy Scan
       run: trivy fs --format table -o trivy-scaner-report.html .
-    - name: Build and Analyze with SonarCloud
+    - name: sonar Scan
       run: mvn clean verify org.sonarsource.scanner.maven:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
