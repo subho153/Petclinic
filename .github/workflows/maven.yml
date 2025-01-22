@@ -28,7 +28,7 @@ jobs:
     - name: Trivy Scan
       run: trivy fs --format table -o trivy-scaner-report.html .
     - name: SonarQube Scan
-      uses: sonarsource/sonarcloud-github-action@<action version> # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+      uses: sonarsource/sonarcloud-github-action@v1.14
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
