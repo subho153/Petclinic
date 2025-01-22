@@ -25,3 +25,5 @@ jobs:
       run: mvn test
     - name: Code Build
       run: mvn package
+    - name: Trivy Scan
+      run: trivy fs --format table -o trivy-scaner-report.html .
